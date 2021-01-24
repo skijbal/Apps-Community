@@ -1,0 +1,15 @@
+version: "2.1"
+services:
+  sickchill:
+    image: ghcr.io/linuxserver/sickchill
+    container_name: sickchill
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Chicago
+    volumes:
+      - /opt/appdata/sickchill:/config
+      - /mnt:/mnt
+    ports:
+      - 8081:8081
+    restart: unless-stopped
